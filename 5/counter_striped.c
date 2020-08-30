@@ -4,9 +4,6 @@
 #include <stdint.h>
 #include <ck_pr.h>
 
-#include <inttypes.h>
-
-
 struct counter_handle {
 	uint64_t value;
 	struct counter_handle *next;
