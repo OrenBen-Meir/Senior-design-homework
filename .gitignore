@@ -2,3 +2,7 @@
 5/benchmark_mutex
 5/benchmark_serial
 5/benchmark_striped
+6/benchmark_atomic
+6/benchmark_mutex
+6/benchmark_serial
+6/benchmark_striped
