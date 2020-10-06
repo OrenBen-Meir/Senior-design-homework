@@ -20,12 +20,14 @@
  */
 ENTRY(your_strlen):
 	xor %rax, %rax
-	BEGINLOOPSTRLEN:
 	movb (%rdi), %cl
 	cmpb $0, %cl
-	je ENDLOOPSTRLEN
+	je STRLEN_ENDLOOPBODY
+	STRLEN_BEGINLOOPBODY:
 	inc %rdi
 	inc %rax
-	jmp BEGINLOOPSTRLEN
-	ENDLOOPSTRLEN:
+	movb (%rdi), %cl
+	cmpb $0, %cl
+	jne STRLEN_BEGINLOOPBODY
+	STRLEN_ENDLOOPBODY:
 	ret

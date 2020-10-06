@@ -21,13 +21,14 @@
 ENTRY(sum):
 	xor %rax, %rax
 	xor %rcx, %rcx
-	BEGINLOOPSUM:
 	cmp $0, %esi
-	jle ENDLOOPSUM
+	jle SUM_ENDLOOPBODY
+	SUM_BEGINLOOPBODY:
 	movl (%rdi), %ecx
-	dec %esi
+	decl %esi
 	addq %rcx, %rax
-	add $4, %rdi
-	jmp BEGINLOOPSUM
-	ENDLOOPSUM:
+	addq $4, %rdi
+	cmpl $0, %esi
+	jg SUM_BEGINLOOPBODY
+	SUM_ENDLOOPBODY:
 	ret
