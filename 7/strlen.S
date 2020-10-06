@@ -22,12 +22,12 @@ ENTRY(your_strlen):
 	xor %rax, %rax
 	movb (%rdi), %cl
 	cmpb $0, %cl
-	je STRLEN_ENDLOOPBODY
-	STRLEN_BEGINLOOPBODY:
+	je strlen_EndLoopBody
+	strlen_BeginLoopBody:
 	inc %rdi
 	inc %rax
 	movb (%rdi), %cl
 	cmpb $0, %cl
-	jne STRLEN_BEGINLOOPBODY
-	STRLEN_ENDLOOPBODY:
+	jne strlen_BeginLoopBody
+	strlen_EndLoopBody:
 	ret

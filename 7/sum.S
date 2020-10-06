@@ -22,13 +22,13 @@ ENTRY(sum):
 	xor %rax, %rax
 	xor %rcx, %rcx
 	cmp $0, %esi
-	jle SUM_ENDLOOPBODY
-	SUM_BEGINLOOPBODY:
+	jle sum_EndLoopBody
+	sum_BeginLoopBody:
 	movl (%rdi), %ecx
 	decl %esi
 	addq %rcx, %rax
 	addq $4, %rdi
 	cmpl $0, %esi
-	jg SUM_BEGINLOOPBODY
-	SUM_ENDLOOPBODY:
+	jg sum_BeginLoopBody
+	sum_EndLoopBody:
 	ret
